@@ -7,8 +7,8 @@
     "limpiar-reporte": "rimraf ./allure-report && rimraf ./allure-results",
     "abrir-reporte": "allure open",
     "ejecutar-pruebas": "npx cypress run --headed --env allure=true",
-    "generar-reporte": "allure generate allure results -o allure-report --clean",
-    "test": "npm run limpiar-reporte && npm run ejecutar-pruebas && npm run generar-reporte && npm run abrir-reporte"
+    "generar-reporte": "allure generate allure-results -o allure-report --clean",
+    "test": "npm run limpiar-reporte && npm run ejecutar-pruebas; npm run generar-reporte && npm run abrir-reporte"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@mmisty/cypress-allure-adapter": "^3.2.3",
-    "@shelex/cypress-allure-plugin": "^2.40.2",
-    "allure-commandline": "^2.33.0",
+    "@shelex/cypress-allure-plugin": "^2.41.1",
+    "allure-commandline": "^2.34.0",
     "rimraf": "^6.0.1"
   }
 }
