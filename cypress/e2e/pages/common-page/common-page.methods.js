@@ -1,27 +1,45 @@
-
 import { commonPageData } from "./common-page.data";
 import { commonPageElements } from "./common-page.elements";
 
-export class commonPageMethods{
-  static navigateToDemoBlaze(){
-    Cy.visit(commonPageData.url);
+export class commonPageMethods {
+  static navigateToDemoBlaze() {
+    cy.clearCookies();
+    cy.visit(commonPageData.url);
   }
-  static clickOnHome(){
+  static clickOnHome() {
     commonPageElements.topMenu.home.click();
   }
-  static clickOnContact(){
+  static clickOnContact() {
     commonPageElements.topMenu.contact.click();
   }
-  static clickOnAboutUs(){
+  static clickOnAboutUs() {
     commonPageElements.topMenu.aboutUs.click();
   }
-  static clickOnCart(){
+  static clickOnCart() {
     commonPageElements.topMenu.cartMenu.click();
   }
-  static clickOnLogIn(){
+  static clickOnLogIn() {
     commonPageElements.topMenu.logIn.click();
   }
-  static clickOnSignUp(){
+  static clickOnSignUp() {
     commonPageElements.topMenu.signUp.click();
   }
-} 
+
+  static verifyAlert(expectedMessage) {
+    cy.on("Window:alert", (str) => {
+      expect(str).to.equal(expectedMessage);
+    });
+  }
+
+  static generateRandomString(length = 10) {
+    let result = "";
+    const characters = "abcdefghijklmnopqrstuvwxyz";
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+  }
+}
