@@ -14,11 +14,14 @@ export class commonPageElements {
         return cy.contains("a", "Cart");
       },
       get logIn() {
-        return cy.contains("a", "Log in");
+        return cy.get('a[data-target="#logInModal"]');
       },
       get signUp() {
         return cy.get('a[data-target="#signInModal"]');
       },
     };
+  }
+  static get signedUser() {
+    return cy.get("a#nameofuser");
   }
 }

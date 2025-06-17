@@ -42,4 +42,9 @@ export class commonPageMethods {
     }
     return result;
   }
+  static verifySignedUser(username) {
+    cy.get("#nameofuser", { timeout: 10000 })
+      .should("be.visible")
+      .and("have.text", `Welcome ${username}`);
+  }
 }
