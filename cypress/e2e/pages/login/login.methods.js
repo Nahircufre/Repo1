@@ -20,7 +20,7 @@ export class loginMethods {
     logger.subStep("insert password");
     this.insertPassword(password);
     logger.subStep("clickonloguin");
-    this.clickOnLoginButton();
+    this.clickOnLoginButton({ timeout: 10000 });
   }
 
   static verifyWrongPassword() {
