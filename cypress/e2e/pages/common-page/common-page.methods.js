@@ -6,7 +6,13 @@ export class commonPageMethods {
     cy.clearCookies();
     cy.visit(commonPageData.url);
   }
+
+  static waitForModalToClose() {
+    cy.get('a[data-target="#logInModal"]').should("not.be.visible");
+  }
+
   static clickOnHome() {
+    this.waitForModalToClose();
     commonPageElements.topMenu.home.click();
   }
   static clickOnContact() {
@@ -45,6 +51,6 @@ export class commonPageMethods {
   static verifySignedUser(username) {
     cy.get("#nameofuser", { timeout: 30000 })
       .should("be.visible")
-      .and("have.text", `Welcome ${username}`);
+      .and("have.text", `Welcome ${username}`, { timeout: 10000 });
   }
 }

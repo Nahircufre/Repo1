@@ -11,7 +11,7 @@ export class loginMethods {
     loginElements.textBoxes.password.type(password);
   }
   static clickOnLoginButton() {
-    loginElements.buttons.login.click();
+    loginElements.buttons.login.click({ timeout: 10000 });
   }
 
   static login(username, password) {
