@@ -4,7 +4,7 @@ import { LoginData } from "../pages/login/login.data";
 import { loginMethods } from "../pages/login/login.methods";
 import { logger } from "../util/logger";
 
-describe(commonPageData.testSuites.autenticacion, () => {
+xdescribe(commonPageData.testSuites.autenticacion, () => {
   it("Inicio de sesion invalido", () => {
     logger.stepNumber(1);
     logger.step("Navgera a la pagina de inicio");

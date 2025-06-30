@@ -1,16 +1,18 @@
-export class thankyouElements{
-    static get buttons(){
-        return {
-            get ok(){
-                return cy.contains('button', 'OK');
-            }
-        }
-    }
-    static get icons(){
-        return{
-            get greenCheckMark(){
-                return cy.get('div.sa-placeholder');
-            }
-        }
-    }
+export class thankyouElements {
+  static get buttons() {
+    return {
+      get ok() {
+        return cy.contains("button", "OK");
+      },
+    };
+  }
+  static get icons() {
+    return {
+      get greenCheckMark() {
+        return cy.get("div.sa-placeholder", {
+          timeout: 8000,
+        });
+      },
+    };
+  }
 }

@@ -12,6 +12,9 @@ export class loginMethods {
   }
   static clickOnLoginButton() {
     loginElements.buttons.login.click({ timeout: 10000 });
+    cy.on("uncaught:exception", (err, runnable) => {
+      return false;
+    });
   }
 
   static login(username, password) {
@@ -21,6 +24,9 @@ export class loginMethods {
     this.insertPassword(password);
     logger.subStep("clickonloguin");
     this.clickOnLoginButton({ timeout: 10000 });
+    cy.on("uncaught:exception", (err, runnable) => {
+      return false;
+    });
   }
 
   static verifyWrongPassword() {

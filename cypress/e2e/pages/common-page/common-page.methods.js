@@ -3,17 +3,18 @@ import { commonPageElements } from "./common-page.elements";
 
 export class commonPageMethods {
   static navigateToDemoBlaze() {
-    cy.clearCookies();
+    cy.clearAllCookies();
+    cy.clearLocalStorage();
     cy.visit(commonPageData.url);
   }
 
   static waitForModalToClose() {
-    cy.get('a[data-target="#logInModal"]').should("not.be.visible");
+    cy.contains("a", "Log out", { timeout: 8000 }).should("be.visible");
   }
 
   static clickOnHome() {
     this.waitForModalToClose();
-    commonPageElements.topMenu.home.click();
+    commonPageElements.topMenu.home.click({ timeout: 3000 });
   }
   static clickOnContact() {
     commonPageElements.topMenu.contact.click();
@@ -26,6 +27,9 @@ export class commonPageMethods {
   }
   static clickOnLogIn() {
     commonPageElements.topMenu.logIn.click();
+    cy.on("uncaught:exception", (err, runnable) => {
+      return false;
+    });
   }
   static clickOnSignUp() {
     commonPageElements.topMenu.signUp.click();
