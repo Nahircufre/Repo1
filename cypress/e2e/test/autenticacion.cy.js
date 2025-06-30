@@ -4,7 +4,7 @@ import { LoginData } from "../pages/login/login.data";
 import { loginMethods } from "../pages/login/login.methods";
 import { logger } from "../util/logger";
 
-xdescribe(commonPageData.testSuites.autenticacion, () => {
+describe(commonPageData.testSuites.autenticacion, () => {
   it("Inicio de sesion valido", () => {
     logger.stepNumber(1);
     logger.step("Navgera a la pagina de inicio");
@@ -22,9 +22,13 @@ xdescribe(commonPageData.testSuites.autenticacion, () => {
     logger.stepNumber(4);
     logger.step("Hacer click en login button");
     loginMethods.clickOnLoginButton();
+    cy.wait(2000);
     logger.verification(
       "verificar q el usuario se dirige a la pagina de inicio"
     );
     commonPageMethods.verifySignedUser(LoginData.validCredentials.username);
+
+    logger.postCondition("hacer logOut");
+    commonPageMethods.logOut();
   });
 });

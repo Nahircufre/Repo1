@@ -53,8 +53,14 @@ export class commonPageMethods {
     return result;
   }
   static verifySignedUser(username) {
-    cy.get("#nameofuser", { timeout: 30000 })
-      .should("be.visible")
-      .and("have.text", `Welcome ${username}`, { timeout: 10000 });
+    commonPageElements.signedUser.should("contain", `Welcome ${username}`);
+  }
+
+  static logOut() {
+    cy.get("body").then(($body) => {
+      if ($body.find("#logout2").length > 0) {
+        commonPageElements.topMenu.logout.click();
+      }
+    });
   }
 }

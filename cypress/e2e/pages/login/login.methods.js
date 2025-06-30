@@ -11,7 +11,7 @@ export class loginMethods {
     loginElements.textBoxes.password.type(password);
   }
   static clickOnLoginButton() {
-    loginElements.buttons.login.click({ timeout: 10000 });
+    loginElements.buttons.login.click({ timeout: 9000 });
     cy.on("uncaught:exception", (err, runnable) => {
       return false;
     });

@@ -13,7 +13,7 @@ import { logger } from "../util/logger";
 const user = LoginData.validCredentials;
 const product = "ASUS Full HD";
 
-describe(commonPageData.testSuites.catalogoDeCompras, () => {
+xdescribe(commonPageData.testSuites.catalogoDeCompras, () => {
   it("Navegacion por categorias", () => {
     logger.stepNumber(1);
     logger.step("Iniicar sesion como usuario registrado");

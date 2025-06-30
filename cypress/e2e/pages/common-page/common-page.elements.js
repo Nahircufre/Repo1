@@ -19,9 +19,12 @@ export class commonPageElements {
       get signUp() {
         return cy.get('a[data-target="#signInModal"]');
       },
+      get logout() {
+        return cy.contains("a", "Log out");
+      },
     };
   }
   static get signedUser() {
-    return cy.get("a#nameofuser");
+    return cy.get("a#nameofuser", { timeout: 8000 });
   }
 }
