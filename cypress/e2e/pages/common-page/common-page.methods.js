@@ -26,7 +26,10 @@ export class commonPageMethods {
     commonPageElements.topMenu.cartMenu.click();
   }
   static clickOnLogIn() {
-    commonPageElements.topMenu.logIn.click();
+    commonPageElements.topMenu.logIn
+      .should("be.visible")
+      .click({ timeout: 8000 });
+
     cy.on("uncaught:exception", (err, runnable) => {
       return false;
     });
@@ -58,7 +61,7 @@ export class commonPageMethods {
 
   static logOut() {
     cy.get("body").then(($body) => {
-      if ($body.find("#logout2").length > 0) {
+      if ($body.find('#logout2[style="display: block;"]').length > 0) {
         commonPageElements.topMenu.logout.click();
       }
     });

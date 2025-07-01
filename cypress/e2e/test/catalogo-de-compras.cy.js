@@ -13,7 +13,7 @@ import { logger } from "../util/logger";
 const user = LoginData.validCredentials;
 const product = "ASUS Full HD";
 
-xdescribe(commonPageData.testSuites.catalogoDeCompras, () => {
+describe(commonPageData.testSuites.catalogoDeCompras, () => {
   it("Navegacion por categorias", () => {
     logger.stepNumber(1);
     logger.step("Iniicar sesion como usuario registrado");
@@ -34,6 +34,9 @@ xdescribe(commonPageData.testSuites.catalogoDeCompras, () => {
     logger.verification("verificar q el prod se encuentra");
     homeMethods.verifyProductDisplay("Apple monitor 24");
     homeMethods.verifyProductDisplay("ASUS Full HD");
+
+    logger.postCondition("hacer logOut");
+    commonPageMethods.logOut();
   });
 
   it("Agregar producto al carrito", () => {
