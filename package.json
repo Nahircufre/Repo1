@@ -6,7 +6,7 @@
   "scripts": {
     "limpiar-reporte": "rimraf ./allure-report && rimraf ./allure-results",
     "abrir-reporte": "allure open",
-    "ejecutar-pruebas": "npx cypress run --env allure=true",
+    "ejecutar-pruebas": "npx cypress run --env allure=true --headed",
     "generar-reporte": "allure generate allure-results -o allure-report --clean",
     "test": "npm run limpiar-reporte && npm run ejecutar-pruebas && npm run generar-reporte && npm run abrir-reporte",
     "cy:parallel": "npm run limpiar-reporte && cypress-parallel -s ejecutar-pruebas -t 2 -d ./cypress/e2e/test; generar-reporte"

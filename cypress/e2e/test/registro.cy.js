@@ -8,7 +8,7 @@ const password = commonPageMethods.generateRandomString(7);
 const existingUser = "random01";
 const existingPassword = LoginData.validCredentials.username;
 
-xdescribe(commonPageData.testSuites.registro, () => {
+describe(commonPageData.testSuites.registro, () => {
   it("Registro de usuario valido", () => {
     logger.stepNumber(1);
     logger.step("Navegar a la página de inicio.");
